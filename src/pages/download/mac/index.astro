@@ -10,25 +10,20 @@ import Button from "@components/Button.astro";
       <h1 class="text-4xl font-bold text-center text-white mb-12">Download Legcord for macOS</h1>
       <div class="max-w-2xl mx-auto">
         <h2 class="text-2xl font-semibold text-white mb-6 text-center">Choose your macOS version:</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h3 class="text-xl font-semibold text-white mb-4 text-center">ARM64 (M1+)</h3>
-            <div class="space-y-4">
-              <Button name="DMG" href={`https://github.com/Legcord/Legcord/releases/download/vVERSIONNUM/Legcord-VERSIONNUM-mac-arm64.dmg`} description="Disk image for easy installation" />
-              <Button name="ZIP" href={`https://github.com/Legcord/Legcord/releases/download/vVERSIONNUM/Legcord-VERSIONNUM-mac-arm64.zip`} description="Compressed archive" />
-            </div>
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold text-white mb-4 text-center">Intel x86</h3>
-            <div class="space-y-4">
-              <Button name="DMG" href={`https://github.com/Legcord/Legcord/releases/download/vVERSIONNUM/Legcord-VERSIONNUM-mac-x64.dmg`} description="Disk image for easy installation" />
-              <Button name="ZIP" href={`https://github.com/Legcord/Legcord/releases/download/vVERSIONNUM/Legcord-VERSIONNUM-mac-x64.zip`} description="Compressed archive" />
-            </div>
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-4 text-center">Universal binary</h3>
+          <div class="space-y-4">
+            <Button name="DMG" href={`https://github.com/Legcord/Legcord/releases/download/vVERSIONNUM/Legcord-VERSIONNUM-mac-universal.dmg`} description="Disk image for easy installation" />
+            <Button name="ZIP" href={`https://github.com/Legcord/Legcord/releases/download/vVERSIONNUM/Legcord-VERSIONNUM-mac-universal.zip`} description="Compressed archive" />
           </div>
         </div>
         <div class="mt-8">
           <h3 class="text-xl font-semibold text-white mb-4 text-center">Package Manager</h3>
-          <Button name="Homebrew" href={`https://github.com/Legcord/homebrew-legcord/`} description="Install using Homebrew package manager" />
+          <Button name="Homebrew" href={`https://github.com/Legcord/Legcord?tab=readme-ov-file#homebrew-repository`} description="Install using Homebrew package manager" />
+        </div>
+        <div class="mt-8">
+          <h3 class="text-xl font-semibold text-white mb-4 text-center">For legacy macOS versions</h3>
+          <Button name="Legcord Legacy" href={`https://github.com/Legcord/Legcord/`} description="Special Legcord builds for macOS 10.11 - 10.14" />
         </div>
         <div class="mt-8 text-center">
           <p class="text-gray-300">
