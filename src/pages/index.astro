@@ -3,10 +3,88 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
 import FeatureCard from "@components/FeatureCard.astro";
 import ImageModal from "@components/ImageModal.astro";
+
+const siteUrl = "https://legcord.app";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Legcord",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows, macOS, Linux",
+      "description": "Legcord is a lightweight, open-source Discord client with custom themes, built-in mods, and privacy-first design. Available for Windows, Mac, and Linux.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "url": `${siteUrl}/download`,
+      "downloadUrl": `${siteUrl}/download`,
+      "author": { "@type": "Organization", "name": "Legcord Team", "url": "https://github.com/Legcord" }
+    },
+    {
+      "@type": "Organization",
+      "name": "Legcord",
+      "url": siteUrl,
+      "sameAs": ["https://github.com/Legcord/Legcord", "https://discord.gg/TnhxcqynZ2"]
+    }
+  ]
+};
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Legcord – Lightweight Discord Client"
+  description="Legcord is a lightweight, open-source Discord client for Windows, Mac, and Linux. Custom themes, built-in mods, privacy-first. Download for free."
+  image="/logo.png"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
   <Hero />
+  
+  <!-- What is Legcord (SEO + intro) -->
+  <section class="py-16 bg-gray-800" aria-labelledby="what-is-legcord">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 id="what-is-legcord" class="text-2xl font-bold text-white mb-6 text-center">
+        What is Legcord?
+      </h2>
+      <p class="text-gray-300 text-lg leading-relaxed mb-4">
+        <strong class="text-white">Legcord</strong> is a free, open-source alternative Discord client that works on <strong class="text-white">Windows</strong>, <strong class="text-white">macOS</strong>, and <strong class="text-white">Linux</strong>. It uses the official Discord web app inside an optimized Electron shell, so you get the same servers, messages, and features—with less RAM usage, built-in themes and mods, and stronger privacy. No injectors or separate mod installers are required: download Legcord, log in with your Discord account, and enable the options you want in settings.
+      </p>
+      <p class="text-gray-400 leading-relaxed">
+        Whether you're on x64 or <strong class="text-gray-300">ARM64 / AArch64</strong> (including many Linux devices and ARM Windows machines), Legcord aims to give you a lightweight Discord experience with support for <strong class="text-gray-300">Wayland</strong> and X11 on Linux, native-feeling screensharing on Mac, and optional client mods like Shelter and Vencord for themes and plugins.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Why choose Legcord -->
+  <section class="py-16 bg-gray-900 border-y border-gray-700/50" aria-labelledby="why-choose">
+    <div class="container mx-auto px-4">
+      <h2 id="why-choose" class="text-3xl font-bold mb-12 text-center text-white">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-300">Why choose Legcord?</span>
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="bg-gray-800/80 rounded-xl p-6 text-center border border-gray-700/50 hover:border-blue-500/30 transition duration-300">
+          <span class="text-3xl mb-3 block"><i class="twa twa-chart-decreasing"></i></span>
+          <h3 class="text-lg font-semibold text-white mb-2">Lightweight</h3>
+          <p class="text-gray-400 text-sm">Uses less RAM than the official client. Perfect for gaming and older hardware.</p>
+        </div>
+        <div class="bg-gray-800/80 rounded-xl p-6 text-center border border-gray-700/50 hover:border-blue-500/30 transition duration-300">
+          <span class="text-3xl mb-3 block"><i class="twa twa-shield"></i></span>
+          <h3 class="text-lg font-semibold text-white mb-2">Privacy-first</h3>
+          <p class="text-gray-400 text-sm">Built-in tracker blocking. We don't collect your data.</p>
+        </div>
+        <div class="bg-gray-800/80 rounded-xl p-6 text-center border border-gray-700/50 hover:border-blue-500/30 transition duration-300">
+          <span class="text-3xl mb-3 block"><i class="twa twa-gear"></i></span>
+          <h3 class="text-lg font-semibold text-white mb-2">Open source</h3>
+          <p class="text-gray-400 text-sm">Audit the code, contribute, or build themes and plugins.</p>
+        </div>
+        <div class="bg-gray-800/80 rounded-xl p-6 text-center border border-gray-700/50 hover:border-blue-500/30 transition duration-300">
+          <span class="text-3xl mb-3 block"><i class="twa twa-rocket"></i></span>
+          <h3 class="text-lg font-semibold text-white mb-2">Zero hassle</h3>
+          <p class="text-gray-400 text-sm">No injectors or installers. Download, run, and customize in settings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="py-20 bg-gray-800">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-12 text-center">Key Features</h2>
@@ -89,6 +167,128 @@ import ImageModal from "@components/ImageModal.astro";
           description="Legcord has a built-in audio screenshare feature, so you can share your audio with your friends without any hassle. (Linux/Windows only)"
           emoji="speaker-high-volume"
         />
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick start -->
+  <section class="py-20 bg-gray-800 border-t border-gray-700/50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-12 text-center text-white">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-300">Get started in 3 steps</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="relative flex flex-col items-center text-center">
+          <div class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold mb-4">1</div>
+          <h3 class="text-xl font-semibold text-white mb-2">Download</h3>
+          <p class="text-gray-400 text-sm mb-4">Pick your platform and grab the latest build from our download page.</p>
+          <a href="/download" class="text-blue-400 hover:text-blue-300 font-medium text-sm">Go to downloads →</a>
+        </div>
+        <div class="relative flex flex-col items-center text-center">
+          <div class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold mb-4">2</div>
+          <h3 class="text-xl font-semibold text-white mb-2">Install & run</h3>
+          <p class="text-gray-400 text-sm mb-4">Install like any other app, then log in with your Discord account.</p>
+        </div>
+        <div class="relative flex flex-col items-center text-center">
+          <div class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold mb-4">3</div>
+          <h3 class="text-xl font-semibold text-white mb-2">Customize</h3>
+          <p class="text-gray-400 text-sm mb-4">Open Legcord settings to enable themes, mods, and transparency.</p>
+          <a href="/plugins" class="text-blue-400 hover:text-blue-300 font-medium text-sm">Browse plugins →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legcord vs official Discord (SEO) -->
+  <section class="py-16 bg-gray-800 border-t border-gray-700/50" aria-labelledby="legcord-vs-discord">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 id="legcord-vs-discord" class="text-3xl font-bold mb-10 text-center text-white">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-300">Legcord vs official Discord</span>
+      </h2>
+      <p class="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+        Legcord is not a replacement for Discord—it connects to the same Discord servers and uses your existing account. Here’s how it differs from the official Discord app.
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse bg-gray-800/80 rounded-xl overflow-hidden border border-gray-700/50" role="table">
+          <thead>
+            <tr class="border-b border-gray-700">
+              <th class="text-left py-4 px-4 text-white font-semibold">Feature</th>
+              <th class="text-left py-4 px-4 text-white font-semibold">Official Discord</th>
+              <th class="text-left py-4 px-4 text-white font-semibold">Legcord</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-300 text-sm">
+            <tr class="border-b border-gray-700/50">
+              <td class="py-3 px-4">Performance</td>
+              <td class="py-3 px-4">Stutters, long load times</td>
+              <td class="py-3 px-4 text-green-400">Quick, smooth</td>
+            </tr>
+            <tr class="border-b border-gray-700/50">
+              <td class="py-3 px-4">Themes & transparency</td>
+              <td class="py-3 px-4">Limited</td>
+              <td class="py-3 px-4 text-green-400">Built-in</td>
+            </tr>
+            <tr class="border-b border-gray-700/50">
+              <td class="py-3 px-4">Client mods (Shelter, Vencord)</td>
+              <td class="py-3 px-4">Not supported</td>
+              <td class="py-3 px-4 text-green-400">Integrated</td>
+            </tr>
+            <tr class="border-b border-gray-700/50">
+              <td class="py-3 px-4">Tracker blocking</td>
+              <td class="py-3 px-4">—</td>
+              <td class="py-3 px-4 text-green-400">Default</td>
+            </tr>
+            <tr class="border-b border-gray-700/50">
+              <td class="py-3 px-4">Open source</td>
+              <td class="py-3 px-4">No</td>
+              <td class="py-3 px-4 text-green-400">Yes</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4">Linux / Wayland / ARM64</td>
+              <td class="py-3 px-4">Varies</td>
+              <td class="py-3 px-4 text-green-400">First-class</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- System requirements -->
+  <section class="py-16 bg-gray-900" aria-labelledby="system-requirements">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 id="system-requirements" class="text-2xl font-bold mb-8 text-center text-white">System requirements</h2>
+      <div class="bg-gray-800 rounded-xl p-6 border border-gray-700/50">
+        <ul class="space-y-3 text-gray-300 text-sm">
+          <li class="flex items-start gap-3">
+            <span class="text-blue-400 mt-0.5">•</span>
+            <span><strong class="text-white">Windows:</strong> Windows 10 or later (64-bit). ARM64 supported.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-400 mt-0.5">•</span>
+            <span><strong class="text-white">macOS:</strong> macOS 12 (Monterey) or later. Apple Silicon and Intel.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-400 mt-0.5">•</span>
+            <span><strong class="text-white">Linux:</strong> Modern distro with Electron support. Wayland and X11. x64 and AArch64.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-400 mt-0.5">•</span>
+            <span><strong class="text-white">RAM:</strong> 512 MB minimum; 2 GB or more recommended for a smooth experience.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-r from-blue-600/90 to-purple-600/90 border-t border-gray-700/30">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Ready to try Legcord?</h2>
+      <p class="text-white/90 text-lg mb-8 max-w-xl mx-auto">Download for your platform and join our community for support and updates.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/download" class="bg-white text-blue-600 py-3 px-8 rounded-full text-lg font-semibold hover:scale-105 transition duration-300 shadow-lg inline-block">Download now</a>
+        <a href="https://discord.gg/TnhxcqynZ2" class="bg-gray-800/80 text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-gray-700 transition duration-300 border border-gray-600 inline-block">Join Discord</a>
       </div>
     </div>
   </section>

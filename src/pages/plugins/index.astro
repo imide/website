@@ -3,15 +3,50 @@ import BaseLayout from "@layouts/BaseLayout.astro"
 import Button from "@components/Button.astro";
 ---
 
-<BaseLayout>
-  <div class="bg-gray-900 py-16">
+<BaseLayout
+  title="Plugins & Client Mods"
+  description="Use Shelter or Vencord with Legcord for Discord themes, custom CSS, and plugins. No injectors—enable in Legcord settings."
+  canonical="/plugins"
+>
+  <article class="bg-gray-900 py-16" aria-labelledby="plugins-heading">
     <div class="container mx-auto px-4 max-w-4xl">
-      <h1 class="text-4xl font-bold text-center text-white mb-8">Legcord plugin list</h1>
-      <h2 class="text-2xl font-semibold text-white mb-6 text-center">Choose your client mod of choice:</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <header class="text-center mb-10">
+        <h1 id="plugins-heading" class="text-4xl font-bold text-white mb-4">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-300">Plugins & client mods</span>
+        </h1>
+        <p class="text-gray-400 text-lg mb-4 max-w-2xl mx-auto">
+          Legcord supports <strong class="text-gray-300">client mods</strong> (plugins) that add Discord themes, custom CSS, and extra features. Enable or switch between them in <strong class="text-gray-300">Settings → Legcord</strong>. No separate installers or injectors are needed.
+        </p>
+        <p class="text-gray-500 text-sm max-w-2xl mx-auto">
+          Both <strong class="text-gray-400">Shelter</strong> and <strong class="text-gray-400">Vencord</strong> work with Legcord. Use one at a time to avoid conflicts. See the <a href="/faq" class="text-blue-400 hover:underline">FAQ</a> for more on the difference between them.
+        </p>
+      </header>
+      <h2 class="text-2xl font-semibold text-white mb-6 text-center">Choose your client mod</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         <Button name="Shelter" href="https://shelter.uwu.network/plugins" description="Comes with every Legcord install" />
         <Button name="Vencord" href="https://vencord.dev/plugins#" description="Togglable in Legcord settings" />
       </div>
+      <section class="bg-gray-800 rounded-xl p-6 border border-gray-700/50" aria-labelledby="plugins-tips">
+        <h2 id="plugins-tips" class="text-lg font-semibold text-white mb-3">Tips for using Discord plugins with Legcord</h2>
+        <ul class="text-gray-400 text-sm space-y-2">
+          <li class="flex items-start gap-2">
+            <span class="text-blue-400 mt-0.5">•</span>
+            Shelter is the default client mod and is recommended for most users.
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-blue-400 mt-0.5">•</span>
+            Themes and plugins are managed inside each mod's own settings or plugin list.
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-blue-400 mt-0.5">•</span>
+            Legcord developers are not affiliated with Shelter or Vencord. Only Shelter is officially supported with Legcord.
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-blue-400 mt-0.5">•</span>
+            If something breaks after adding a plugin, try disabling it or switching mods.
+          </li>
+        </ul>
+      </section>
     </div>
-  </div>
+  </article>
 </BaseLayout>
