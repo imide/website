@@ -26,6 +26,13 @@ export const FAQ_ENTRIES: FaqEntry[] = [
     accent: "blue",
   },
   {
+    question: "Does Legcord use less CPU/RAM/GPU than the official client?",
+    answerText: "Yes and no. Legcord can use less GPU and RAM than the official client, but it all depends on the setup and environment. While developing, we strive for high performance code and we use many hacks to optimize the app while keeping the security in mind. Enabling plugins and themes may drastically increase resource usage, so keep that in mind when customizing your experience. We personally focus more on smoothness rather than raw resource usage, so we optimize for that.",
+    answerHtml:
+      'Yes and no. Legcord can use less GPU and RAM than the official client, but it all depends on the setup and environment. While developing, we strive for high performance code and we use many hacks to optimize the app while keeping the security in mind. Enabling plugins and themes may <strong class="text-white">drastically</strong> increase resource usage, so keep that in mind when customizing your experience. We personally focus more on smoothness rather than raw resource usage, so we optimize for that.',
+    accent: "purple",
+  },
+  {
     question: "Can I use this on anything other than AArch64?",
     answerText:
       "Yes! Legcord should work normally under Windows, macOS, and Linux as long as it has Electron support.",
